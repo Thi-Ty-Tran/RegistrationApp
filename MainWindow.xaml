@@ -1,0 +1,199 @@
+﻿<!--
+    Name: Thi Ty Tran
+    Date Created: Nov 28, 2024
+    Description: DC Registration App - Assignment 5
+    Last modified: Dec 5, 2024 
+-->
+    
+<Window x:Class="RegistrationApp.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="clr-namespace:RegistrationApp"
+    mc:Ignorable="d"
+    Title="DC Registration App" Height="620" Width="1000"
+    WindowStartupLocation="CenterScreen"
+    ResizeMode="NoResize">
+
+    <Grid Margin="10">
+        <!-- Menu Bar -->
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_Register" Click="btnRegister_Click" />
+                <MenuItem Header="_Record">
+                    <MenuItem Header="_Update Record" Click="btnUpdateRecord_Click" />
+                    <MenuItem Header="_Delete Record" Click="btnDeleteRecord_Click" />
+                </MenuItem>
+                <MenuItem Header="_Delete All Records" Click="btnRemoveAllRecords_Click" />
+                <MenuItem Header="_Load Records to Server" Click="btnLoadToServer_Click" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="btnExit_Click"/>
+            </MenuItem>
+            <MenuItem Header="_Help">
+                <MenuItem Header="_Read Help" />
+                <MenuItem Header="_Technical Supports" />
+                <MenuItem Header="_About DC-Registration App" />
+            </MenuItem>
+        </Menu>
+
+        <!-- Student Information GroupBox -->
+        <StackPanel Margin="0,21,0,0">
+            <GroupBox Height="97" Header="Student Information" Width="960">
+                <Grid Height="64">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="236*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="236*" />
+                        <ColumnDefinition Width="Auto" MinWidth="27" />
+                        <ColumnDefinition Width="209*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <!-- First Name -->
+                    <Label Grid.Column="0" Content="First Name" VerticalAlignment="Center" Height="26" />
+                    <TextBox Grid.Row="0" Name="txtFirstName" Margin="10,5,0,0" HorizontalAlignment="Left" Width="180" Grid.Column="1"
+                             ToolTip="Enter your first name" />
+
+                    <!-- SIN -->
+                    <Label Grid.Column="2" Content="SIN" VerticalAlignment="Center" Margin="0,0,87,0" Height="26" />
+                    <TextBox Grid.Row="0" Grid.Column="2" Name="txtSIN" Grid.ColumnSpan="2" Margin="42,5,33,0"
+                             ToolTip="Enter your SIN" />
+
+                    <!-- Last Name -->
+                    <Label Grid.Row="1" Grid.Column="0" Content="Last Name" VerticalAlignment="Center" Height="26" />
+                    <TextBox Grid.Row="1" Name="txtLastName" Margin="10,5,33,0" Grid.Column="1" 
+                             ToolTip="Enter your last name"/>
+
+                    <!-- Email -->
+                    <Label Grid.Row="1" Grid.Column="2" Content="Email" VerticalAlignment="Center" Margin="0,0,73,0" Height="26" />
+                    <TextBox Grid.Row="1" Grid.Column="2" Name="txtEmail" Grid.ColumnSpan="2" Margin="42,5,33,0" 
+                             ToolTip="Enter your email"/>
+
+                    <!-- Admission Test Score -->
+                    <Label Grid.Row="0" Grid.Column="4" Content="Admission Test Score" VerticalAlignment="Center" Height="26" />
+                    <ComboBox Grid.Row="0" Grid.Column="5" Name="cboAdmissionTestScore" SelectedIndex="-1" Margin="10,5,10,0">
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="20" />
+                        <ComboBoxItem Content="30" />
+                        <ComboBoxItem Content="40" />
+                        <ComboBoxItem Content="50" />
+                        <ComboBoxItem Content="60" />
+                        <ComboBoxItem Content="70" />
+                        <ComboBoxItem Content="80" />
+                        <ComboBoxItem Content="90" />
+                    </ComboBox>
+
+                    <!-- High School Grade -->
+                    <Label Grid.Row="1" Grid.Column="4" Content="High School Grade" VerticalAlignment="Center" Height="26" />
+                    <ComboBox Grid.Row="1" Grid.Column="5" Name="cboHighSchoolGrade" SelectedIndex="-1" Margin="10,5,10,0">
+                        <ComboBoxItem Content="10" />
+                        <ComboBoxItem Content="20" />
+                        <ComboBoxItem Content="30" />
+                        <ComboBoxItem Content="40" />
+                        <ComboBoxItem Content="50" />
+                        <ComboBoxItem Content="60" />
+                        <ComboBoxItem Content="70" />
+                        <ComboBoxItem Content="80" />
+                        <ComboBoxItem Content="90" />
+                    </ComboBox>
+                </Grid>
+            </GroupBox>
+
+            <!-- Check Button -->
+            <Button Content="_Check" Name="btnCheck" Width="111" HorizontalAlignment="Left" Margin="10,8,8,8" Click="btnCheck_Click"
+                    ToolTip="Click to check validity of your information"/>
+
+            <!-- Available Programs GroupBox -->
+            <GroupBox Height="89" Header="Available Programs" Width="958">
+                <Grid Height="70">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="236*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="236*" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="209*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <!-- Campus Location -->
+                    <Label Content="Campus Location" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Name="cboCampusLocation" Grid.Row="0" Grid.Column="1" Margin="5" Width="200" SelectedIndex="-1">
+                        <ComboBoxItem Content="ON" />
+                        <ComboBoxItem Content="QC" />
+                        <ComboBoxItem Content="NS" />
+                        <ComboBoxItem Content="NB" />
+                        <ComboBoxItem Content="MB" />
+                        <ComboBoxItem Content="BC" />
+                        <ComboBoxItem Content="PE" />
+                        <ComboBoxItem Content="SK" />
+                        <ComboBoxItem Content="AB" />
+                        <ComboBoxItem Content="NL" />
+                    </ComboBox>
+
+                    <!-- Programs -->
+                    <Label Content="Programs" Grid.Row="0" Grid.Column="2" VerticalAlignment="Center" Margin="5"/>
+                    <ComboBox Name="cboProgram" Grid.Row="0" Grid.Column="3" Margin="5" Width="200" SelectedIndex="-1">
+                        <ComboBoxItem Content="Architectural" />
+                        <ComboBoxItem Content="Science and Art" />
+                        <ComboBoxItem Content="Law" />
+                        <ComboBoxItem Content="Health" />
+                        <ComboBoxItem Content="Engineering" />
+                        <ComboBoxItem Content="Music" />
+                        <ComboBoxItem Content="Business" />
+                    </ComboBox>
+
+                    <!-- Study Period -->
+                    <Label Content="Study Period:" Grid.Row="0" Grid.Column="4" VerticalAlignment="Center" Margin="5"/>
+                    <TextBlock Name="StudyPeriodLabel" Grid.Row="0" Grid.Column="5" Text="0" VerticalAlignment="Center" Margin="5"/>
+
+                    <!-- Total Cost -->
+                    <Label Content="Total Cost:" Grid.Row="1" Grid.Column="4" VerticalAlignment="Center" Margin="5"/>
+                    <TextBlock Name="TotalCostLabel" Grid.Row="1" Grid.Column="5" Text="0.0$" VerticalAlignment="Center" Margin="5"/>
+                </Grid>
+            </GroupBox>
+
+            <!-- Register Button -->
+            <Button Content="_Register" Name="btnRegister" Width="111" HorizontalAlignment="Left" Margin="10,8,8,8" Click="btnRegister_Click"
+                    ToolTip="Click to register student information"/>
+
+            <!-- DataGrid for Records -->
+            <DataGrid Grid.Row="5" x:Name="StudentData" Margin="0,0,0,10" AutoGenerateColumns="False" IsReadOnly="True" Width="964" RenderTransformOrigin="0.522,0.355" Height="177"
+                      ToolTip="Displaying student data">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Width="100" Binding="{Binding firstName}" />
+                    <DataGridTextColumn Header="Last Name" Width="100" Binding="{Binding lastName}" />
+                    <DataGridTextColumn Header="SIN" Width="100"  Binding="{Binding sin}" />
+                    <DataGridTextColumn Header="Email" Width="180" Binding="{Binding email}" />
+                    <DataGridTextColumn Header="High School&#x0a;Grade" Width="100" Binding="{Binding highSchoolGrade}" />
+                    <DataGridTextColumn Header="Admission&#x0a;Test Score" Width="100" Binding="{Binding admissionTestScore}" />
+                    <DataGridTextColumn Header="Campus&#x0a;Location" Width="*" Binding="{Binding campusLocation}" />
+                    <DataGridTextColumn Header="Program" Width="*" Binding="{Binding program}" />
+                </DataGrid.Columns>
+            </DataGrid>
+            
+            <!-- Buttons for managing records: Delete, Update, Remove All, Load to Server -->
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                <Button Content="_Delete Record" Name="btnDeleteRecord" Margin="5" Height="25" Width="130" Click="btnDeleteRecord_Click" ToolTip="Click to delete selected record" />
+                <Button Content="_Update Record" Name="btnUpdateRecord" Margin="5" Height="25" Width="130" Click="btnUpdateRecord_Click" ToolTip="Click to update selected record"/>
+                <Button Content="_Remove All Records" Name="btnRemoveAllRecords" Margin="5" Height="25" Width="180" Click="btnRemoveAllRecords_Click" ToolTip="Click to remove all records"/>
+                <Button Content="_Load Records to Server" Name="btnLoadRecordsToServer" Margin="5" Height="25" Width="180" Click="btnLoadToServer_Click" ToolTip="Click to load existing records to server"/>
+            </StackPanel>
+
+            <!-- Input section records by SIN and exit button -->
+            <StackPanel Orientation="Horizontal"  Margin="10,0,10,10" Height="30">
+                <Label Content="SIN" Width="45" Margin="20,0,8,8" Height="28" FontSize="15" />
+                <ComboBox Name="SINComboBox" Margin="5,0,0,0" Width="180" SelectionChanged="SINComboBox_SelectionChanged" />
+                <Button Content="_Exit" Name="btnExit" Margin="610,0,0,0" Width="70" Click="btnExit_Click" ToolTip="Click to exit app" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>
