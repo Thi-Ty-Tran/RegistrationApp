@@ -2,7 +2,7 @@
     Name: Thi Ty Tran
     Date Created: Nov 28, 2024
     Description: DC Registration App - Assignment 5
-    Last modified: Dec 5, 2024 
+    Last modified: Dec 6, 2024 
 -->
     
 <Window x:Class="RegistrationApp.MainWindow"
@@ -31,9 +31,9 @@
                 <MenuItem Header="_Exit" Click="btnExit_Click"/>
             </MenuItem>
             <MenuItem Header="_Help">
-                <MenuItem Header="_Read Help" />
-                <MenuItem Header="_Technical Supports" />
-                <MenuItem Header="_About DC-Registration App" />
+                <MenuItem Header="_Read Help" Click="ReadHelp_Click"/>
+                <MenuItem Header="_Technical Supports" Click="TechnicalSupport_Click" />
+                <MenuItem Header="_About DC-Registration App" Click="AboutDC_Click"/>
             </MenuItem>
         </Menu>
 

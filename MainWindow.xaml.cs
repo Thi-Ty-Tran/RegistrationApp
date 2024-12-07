@@ -1,7 +1,7 @@
 ﻿//    Name: Thi Ty Tran
 //    Date Created: Nov 28, 2024
 //    Description: DC Registration App - Assignment 5
-//    Last modified: Dec 5, 2024
+//    Last modified: Dec 6, 2024
 
 using System.Collections.ObjectModel;
 using System.IO;
@@ -9,6 +9,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using Microsoft.VisualBasic;
 using Newtonsoft.Json;
 
 namespace RegistrationApp
@@ -387,6 +388,24 @@ namespace RegistrationApp
                     PopulateFields(selectedStudent);
                 }
             }
+        }
+
+        // Interaction logic for Read Help
+        private void ReadHelp_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Instruction of how to use the app ...", "Read Help", MessageBoxButton.OK, MessageBoxImage.Information);
+        }
+
+        // Interaction logic for technical support
+        private void TechnicalSupport_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"Please contact: dc.registration@dcmail.ca", "Technical Support", MessageBoxButton.OK);
+        }
+
+        // Interaction logic for about dc 
+        private void AboutDC_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show($"This app is to resgister students into program in DC ", "DC App", MessageBoxButton.OK, MessageBoxImage.Information);
         }
     }
 }
